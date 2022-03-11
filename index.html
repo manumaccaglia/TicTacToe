@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="css/style.css">
+    <title>Ta Te Ti</title>
+</head>
+
+<body>
+    <header>
+        <h1>TIC TAC TOE</h1>
+    </header>
+
+    <section>
+        <aside class="players_box">
+
+            <div id="player1">
+                <h2>Player 1</h2>
+                <div class="score1">
+                    <p>Score:</p>
+                    <p class="score_player1">0</p>
+                </div>
+            </div>
+
+            <div id="player2">
+                <h2>Player 2</h2>
+                <div class="score2">
+                    <p>Score:</p>
+                    <p class="score_player2">0</p>
+                </div>
+            </div>
+
+        </aside>
+        <main>
+            <table>
+                <tr>
+                    <td id="f1_1" class="button_box">
+                        <button class="button_sel button_select" type="button" id="button_active1"
+                            onclick="active_f_11()"></button>
+                    </td>
+                    <td id="f1_2" class="button_box">
+                        <button class="button_sel button_select" type="button" id="button_active2"
+                            onclick="active_f_12()"></button>
+                    </td>
+                    <td id="f1_3" class="button_box">
+                        <button class="button_sel button_select" type="button" id="button_active3"
+                            onclick="active_f_13()"></button>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td id="f2_1" class="button_box">
+                        <button class="button_sel button_select" type="button" id="button_active4"
+                            onclick="active_f_21()"></button>
+                    </td>
+                    <td id="f2_2" class="button_box">
+                        <button class="button_sel button_select" type="button" id="button_active5"
+                            onclick="active_f_22()"></button>
+                    </td>
+                    <td id="f2_3" class="button_box">
+                        <button class="button_sel button_select" type="button" id="button_active6"
+                            onclick="active_f_23()"></button>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td id="f3_1" class="button_box">
+                        <button class="button_sel button_select" type="button" id="button_active7"
+                            onclick="active_f_31()"></button>
+                    </td>
+                    <td id="f3_2" class="button_box">
+                        <button class="button_sel button_select" type="button" id="button_active8"
+                            onclick="active_f_32()"></button>
+                    </td>
+                    <td id="f3_3" class="button_box">
+                        <button class="button_sel button_select" type="button" id="button_active9"
+                            onclick="active_f_33()"></button>
+                    </td>
+                </tr>
+            </table>
+        </main>
+    </section>
+
+    <footer>
+        <button type="button" class="start" id="run_game"> Start </button>
+
+        <button type="button" onclick="nextGame()" class="start" id="next" disabled> Next Game</button>
+
+        <button type="button" onclick="resetGame()" class="start" id="reset" disabled> Reset Score</button>
+    </footer>
+</body>
+
+</html>
