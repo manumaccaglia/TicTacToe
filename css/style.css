@@ -5,7 +5,8 @@
 }
 
 body{
-    background-color: darkslategrey;
+    background-color: #FFFFFF;
+    color: black;
 }
 
 header{
@@ -26,7 +27,7 @@ section{
 }
 
 main{
-    width: 100%;
+    width: 60%;
     height: 70%;
     border: 3px solid black;
     border-radius: 20px;
@@ -75,5 +76,14 @@ footer{
     height: 50px;
     display: flex;
     align-items: center;
-    justify-content: space-around;
+    justify-content: space-around; 
+}
+
+.start{
+    background-color: #0D79EC;
+    color: #FFFFFF;
+    padding: 5px 17px;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
 }
