@@ -1,5 +1,6 @@
 const boxes = Array.from(document.getElementsByClassName('box'));
 const playText = document.getElementById('playText');
+const restartBtn = document.getElementById('restartBtn');
 const spaces = [null, null, null, null, null, null, null, null, null];
 const player1 = 'X';
 const player2 = 'O';
@@ -42,6 +43,8 @@ const boxClicked = (e) => {
     }
 };
 
+
+//verifica si el jugador ganó
 const playerHasWon = () => {
     if (spaces[0] === currentPlayer) {
         if (spaces[1] === currentPlayer && spaces[2] === currentPlayer) {
@@ -86,6 +89,18 @@ const playerHasWon = () => {
         }
     }
 }
+
+//funcionalidad del botón restart
+restartBtn.addEventListener('click', () => {
+    spaces.forEach((space, index) => {
+        spaces[index] = null;
+    });
+    boxes.forEach((box) => {
+        box.innerText = '';
+    });
+    playText.innerText = `Let's Play!`;
+    currentPlayer = player1;
+});
 
 
 drawBoard();
