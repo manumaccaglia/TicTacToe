@@ -57,11 +57,34 @@ const playerHasWon = () => {
             return true;
         }
     }
-    if (spaces[1] === currentPlayer) {
+     if (spaces[1] === currentPlayer) {
         if (spaces[4] === currentPlayer && spaces[7] === currentPlayer) {
-            console.log(`${currentPlayer} wins up top.`)
+            console.log(`${currentPlayer} wins vertical center.`)
             return true;
         }
+    }
+    if (spaces[2] === currentPlayer){
+        if (spaces[5] === currentPlayer && spaces[8] === currentPlayer) {
+            console.log(`${currentPlayer} wins on the right.`)
+            return true;
+        }
+    }
+    if (spaces[6] === currentPlayer){
+        if (spaces[7] === currentPlayer && spaces[8] === currentPlayer) {
+            console.log(`${currentPlayer} wins on bottom.`)
+            return true;
+        }
+        if (spaces[4] === currentPlayer && spaces[2] === currentPlayer) {
+            console.log(`${currentPlayer} wins inverted diagonally.`)
+            return true;
+        }
+    }
+    if (spaces[3] === currentPlayer){
+        if (spaces[4] === currentPlayer && spaces[5] === currentPlayer) {
+            console.log(`${currentPlayer} wins horizontal center.`)
+            return true;
+        }
+    }
 }
 
 
