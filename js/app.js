@@ -104,3 +104,5 @@ restartBtn.addEventListener('click', () => {
 
 
 drawBoard();
+createPlayers()
+import {player, createPlayers} from "./player.js"

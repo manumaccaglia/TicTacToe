@@ -12,12 +12,15 @@
 <body>
     <div class="container">
             <h1 id="playText">Let's Play!</h1>
-            <button id="restartBtn">Restart</button>
+            <div id="buttonsToPlay">
+                <button id="restartBtn">Restart</button>
+                <button id="starterButton">Starter</button>
+            </div>
 
         <div id="divContenedor">
             <div class="jugadores">
                 <h3>LOCAL</h3>
-                <p>Nombre:</p>
+                <p id="nombreLocal"></p>
                 <p>Score:</p>
             </div>
             
@@ -35,12 +38,12 @@
 
             <div class="jugadores">
                 <h3>VISITANTE</h3>
-                <p>Nombre:</p>
+                <p id="nombreVisitante"></p>
                 <p>Score:</p>
             </div>
         </div>
     </div>
-    <script src="/js/app.js"></script>
+    <script src="/js/app.js" type="module"></script>
 </body>
 
 </html>
