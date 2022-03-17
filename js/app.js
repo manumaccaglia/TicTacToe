@@ -1,3 +1,24 @@
+
+// Get the modal
+var modal = document.getElementById("myModal");
+
+// Get the <span> element that closes the modal
+var span = document.getElementsByClassName("close")[0];
+
+
+// When the user clicks on <span> (x), close the modal
+span.onclick = function() {
+  modal.style.display = "none";
+}
+
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+  if (event.target == modal) {
+    modal.style.display = "none";
+  }
+}
+
+
 const boxes = Array.from(document.getElementsByClassName('box'));
 const playText = document.getElementById('playText');
 const restartBtn = document.getElementById('restartBtn');
@@ -5,6 +26,18 @@ const spaces = [null, null, null, null, null, null, null, null, null];
 const player1 = 'X';
 const player2 = 'O';
 let currentPlayer = player1;
+
+
+//variables para sortear partida
+var playerRandom;
+var newGame = false; //Primer juego
+
+const random = document.getElementById('starterButton');
+
+//sortear partida
+random.onclick = () => {
+    playerRandom = random(newGame);
+};
 
 
 //dibujamos el tablero y agregamos un listener al click de los boxes
@@ -27,6 +60,9 @@ const drawBoard = () => {
         box.addEventListener('click', boxClicked)
     });
 };
+
+
+
 
 const boxClicked = (e) => {
     const id = e.target.id;
@@ -105,4 +141,4 @@ restartBtn.addEventListener('click', () => {
 
 drawBoard();
 createPlayers()
-import {player, createPlayers} from "./player.js"
+//import {player, createPlayers} from "./player.js"

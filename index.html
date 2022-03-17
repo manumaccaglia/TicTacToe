@@ -10,12 +10,78 @@
 </head>
 
 <body>
-    <div class="container">
-            <h1 id="playText">Let's Play!</h1>
-            <div id="buttonsToPlay">
-                <button id="starterButton">Start</button>
-                <button id="restartBtn">Reset</button>
+    <div id="myModal" class="modal">
+
+        <!-- Modal content -->
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h1>Let's get started!</h1>
+
+            <div class="form-container">
+                <form class="player1">
+                    <label for="namePlayer1">Nombre</label>
+                    <input type="text" id="namePlayer1">
+                    <div class="colorPlayer1">
+                        <h6>Seleccione su color</h6>
+                        <input type="radio" id="verde" name="color" value="VERDE">
+                        <label for="verde" style="color: rgb(55, 202, 55);">VERDE</label><br>
+                        <input type="radio" id="celeste" name="color" value="CELESTE">
+                        <label for="celeste" style="color: #0D79EC;">CELESTE</label><br>
+                        <input type="radio" id="naranja" name="color" value="NARANJA">
+                        <label for="naranja" style="color: rgb(230, 156, 21);">NARANJA</label> <br>
+                        <input type="radio" id="violeta" name="color" value="VIOLETA">
+                        <label for="violeta" style="color: rgb(127, 27, 221);">VIOLETA</label>
+                    </div>
+                    <div class="piecePlayer1">
+                        <h6>Seleccione su pieza</h6>
+                        <input type="radio" id="X" name="pieza" value="X">
+                        <label for="X">X</label><br>
+                        <input type="radio" id="O" name="pieza" value="O">
+                        <label for="O">O</label><br>
+                        <input type="radio" id="Δ" name="pieza" value="Δ">
+                        <label for="Δ">Δ</label><br>
+                        <input type="radio" id="▢" name="pieza" value="▢">
+                        <label for="▢">▢</label><br>
+                    </div>
+                </form>
+                <form class="player2">
+                    <label for="namePlayer1">Nombre</label>
+                    <input type="text" id="namePlayer1">
+                    <div class="colorPlayer1">
+                        <h6>Seleccione su color</h6>
+                        <input type="radio" id="verde" name="color" value="VERDE">
+                        <label for="verde" style="color: rgb(55, 202, 55);">VERDE</label><br>
+                        <input type="radio" id="celeste" name="color" value="CELESTE">
+                        <label for="celeste" style="color: #0D79EC;">CELESTE</label><br>
+                        <input type="radio" id="naranja" name="color" value="NARANJA">
+                        <label for="naranja" style="color: rgb(230, 156, 21);">NARANJA</label> <br>
+                        <input type="radio" id="violeta" name="color" value="VIOLETA">
+                        <label for="violeta" style="color: rgb(127, 27, 221);">VIOLETA</label>
+                    </div>
+                    <div class="piecePlayer1">
+                        <h6>Seleccione su pieza</h6>
+                        <input type="radio" id="X" name="pieza" value="X">
+                        <label for="X">X</label><br>
+                        <input type="radio" id="O" name="pieza" value="O">
+                        <label for="O">O</label><br>
+                        <input type="radio" id="Δ" name="pieza" value="Δ">
+                        <label for="Δ">Δ</label><br>
+                        <input type="radio" id="▢" name="pieza" value="▢">
+                        <label for="▢">▢</label><br>
+                    </div>
+                </form>
             </div>
+
+
+        </div>
+
+    </div>
+    <div class="container">
+        <h1 id="playText">Let's Play!</h1>
+        <div id="buttonsToPlay">
+            <button id="starterButton">Start</button>
+            <button id="restartBtn">Reset</button>
+        </div>
 
         <div id="divContenedor">
             <div class="jugadores">
@@ -23,7 +89,7 @@
                 <p id="nombreLocal"></p>
                 <p>Score:</p>
             </div>
-            
+
             <div id="gameBoard">
                 <div class="box" id="0"></div>
                 <div class="box" id="1"></div>
