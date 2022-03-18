@@ -1,40 +1,24 @@
-
-
-class player{
-    constructor(name, piece, color, score, starter){
-        this.name = name;
-        this.piece = piece;
-        this.color = color;
-        this.score = score;
-        this.starter = starter
+class Player {
+    constructor(attributes){
+        this.name = attributes.name;
+        this.piece = attributes.piece;
+        this.color = attributes.color;
+        this.score = 0;
     }
 }
 
 
 //Hay que crear los jugadores preguntando por prompt las preferencias y modificando el html en base a eso
 //TODO agregar jugadores en html
-const player1 = new player()
 
 
 
-function createPlayers(){
-    let nameLocal = prompt("Ingresa tu nombre")
-    let pieceLocal = prompt("Elige tu pieza")
-    let colorLocal = prompt("Elige tu color")
+function CreatePlayers(player1Attributes, player2Attributes){
+  
+  const playerLocal = new Player(player1Attributes)
+  const playerVisitante = new Player(player2Attributes)
 
-    let nameVisitante = prompt("Ingresa tu nombre")
-    let pieceVisitante = prompt("Elige tu pieza")
-    let colorVisitante = prompt("Elige tu color")
-
-    
-
-    const playerLocal = new player(nameLocal, pieceLocal, colorLocal)
-    const playerVisitante = new player(nameVisitante, pieceVisitante, colorVisitante)
-
-    nombreLocal.innerText = playerLocal.name
-    nombreVisitante.innerText = playerVisitante.name
-    
-
+  return {playerLocal, playerVisitante}
 }
 
-export {player, createPlayers}
+export { CreatePlayers }

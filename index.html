@@ -18,58 +18,62 @@
             <h1>Let's get started!</h1>
 
             <div class="form-container">
-                <form class="player1">
+                <form class="start-form" id="player-creation-form">
+                  <div>
                     <label for="namePlayer1">Nombre</label>
-                    <input type="text" id="namePlayer1">
+                    <input type="text" name="name1">
                     <div class="colorPlayer1">
                         <h6>Seleccione su color</h6>
-                        <input type="radio" id="verde" name="color" value="VERDE">
+                        <input type="radio" name="color1" value="VERDE">
                         <label for="verde" style="color: rgb(55, 202, 55);">VERDE</label><br>
-                        <input type="radio" id="celeste" name="color" value="CELESTE">
+                        <input type="radio" name="color1" value="CELESTE">
                         <label for="celeste" style="color: #0D79EC;">CELESTE</label><br>
-                        <input type="radio" id="naranja" name="color" value="NARANJA">
+                        <input type="radio" name="color1" value="NARANJA">
                         <label for="naranja" style="color: rgb(230, 156, 21);">NARANJA</label> <br>
-                        <input type="radio" id="violeta" name="color" value="VIOLETA">
+                        <input type="radio" name="color1" value="VIOLETA">
                         <label for="violeta" style="color: rgb(127, 27, 221);">VIOLETA</label>
                     </div>
                     <div class="piecePlayer1">
                         <h6>Seleccione su pieza</h6>
-                        <input type="radio" id="X" name="pieza" value="X">
+                        <input type="radio" name="pieza1" value="X">
                         <label for="X">X</label><br>
-                        <input type="radio" id="O" name="pieza" value="O">
+                        <input type="radio" name="pieza1" value="O">
                         <label for="O">O</label><br>
-                        <input type="radio" id="Δ" name="pieza" value="Δ">
+                        <input type="radio" name="pieza1" value="Δ">
                         <label for="Δ">Δ</label><br>
-                        <input type="radio" id="▢" name="pieza" value="▢">
+                        <input type="radio" name="pieza1" value="▢">
                         <label for="▢">▢</label><br>
                     </div>
-                </form>
-                <form class="player2">
+                  </div>
+
+                  <div>
                     <label for="namePlayer1">Nombre</label>
-                    <input type="text" id="namePlayer1">
-                    <div class="colorPlayer1">
+                    <input type="text" name="name2">
+                    <div class="colorPlayer2">
                         <h6>Seleccione su color</h6>
-                        <input type="radio" id="verde" name="color" value="VERDE">
+                        <input type="radio" name="color2" value="VERDE">
                         <label for="verde" style="color: rgb(55, 202, 55);">VERDE</label><br>
-                        <input type="radio" id="celeste" name="color" value="CELESTE">
+                        <input type="radio" name="color2" value="CELESTE">
                         <label for="celeste" style="color: #0D79EC;">CELESTE</label><br>
-                        <input type="radio" id="naranja" name="color" value="NARANJA">
+                        <input type="radio" name="color2" value="NARANJA">
                         <label for="naranja" style="color: rgb(230, 156, 21);">NARANJA</label> <br>
-                        <input type="radio" id="violeta" name="color" value="VIOLETA">
+                        <input type="radio" name="color2" value="VIOLETA">
                         <label for="violeta" style="color: rgb(127, 27, 221);">VIOLETA</label>
                     </div>
-                    <div class="piecePlayer1">
+                    <div class="piecePlayer2">
                         <h6>Seleccione su pieza</h6>
-                        <input type="radio" id="X" name="pieza" value="X">
+                        <input type="radio" name="pieza2" value="X">
                         <label for="X">X</label><br>
-                        <input type="radio" id="O" name="pieza" value="O">
+                        <input type="radio" name="pieza2" value="O">
                         <label for="O">O</label><br>
-                        <input type="radio" id="Δ" name="pieza" value="Δ">
+                        <input type="radio" name="pieza2" value="Δ">
                         <label for="Δ">Δ</label><br>
-                        <input type="radio" id="▢" name="pieza" value="▢">
+                        <input type="radio" name="pieza2" value="▢">
                         <label for="▢">▢</label><br>
                     </div>
+                  </div>
                 </form>
+                <button type='submit' form="player-creation-form">START</button>
             </div>
 
 
@@ -79,15 +83,16 @@
     <div class="container">
         <h1 id="playText">Let's Play!</h1>
         <div id="buttonsToPlay">
-            <button id="starterButton">Start</button>
-            <button id="restartBtn">Reset</button>
+            <button id="restartBtn" style="visibility: hidden">Reset</button>
         </div>
 
         <div id="divContenedor">
             <div class="jugadores">
                 <h3>LOCAL</h3>
-                <p id="nombreLocal"></p>
-                <p>Score:</p>
+                <p id="pieza1" class="pieza"></p>
+                <p id="nombreLocal" class="player-name"></p>
+                <span>Score: </span>
+                <p id="score1"></p>
             </div>
 
             <div id="gameBoard">
@@ -104,9 +109,12 @@
 
             <div class="jugadores">
                 <h3>VISITANTE</h3>
-                <p id="nombreVisitante"></p>
-                <p>Score:</p>
+                <p id="pieza2" class="pieza"></p>
+                <p id="nombreVisitante" class="player-name"></p>
+                <span>Score: </span>
+                <p id="score2"></p>
             </div>
+            
         </div>
     </div>
     <script src="js/app.js" type="module"></script>

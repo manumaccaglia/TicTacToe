@@ -1,9 +1,9 @@
-
+import { ConfigGame } from "./modal.js"
 // Get the modal
-var modal = document.getElementById("myModal");
+const modal = document.getElementById("myModal");
 
 // Get the <span> element that closes the modal
-var span = document.getElementsByClassName("close")[0];
+const span = document.getElementsByClassName("close")[0];
 
 
 // When the user clicks on <span> (x), close the modal
@@ -23,21 +23,12 @@ const boxes = Array.from(document.getElementsByClassName('box'));
 const playText = document.getElementById('playText');
 const restartBtn = document.getElementById('restartBtn');
 const spaces = [null, null, null, null, null, null, null, null, null];
-const player1 = 'X';
-const player2 = 'O';
-let currentPlayer = player1;
 
-
-//variables para sortear partida
-var playerRandom;
-var newGame = false; //Primer juego
-
-const random = document.getElementById('starterButton');
-
-//sortear partida
-random.onclick = () => {
-    playerRandom = random(newGame);
-};
+const GameConfig = {
+  player1: null,
+  player2: null,
+  currentPlayer: null
+}
 
 
 //dibujamos el tablero y agregamos un listener al click de los boxes
@@ -62,66 +53,81 @@ const drawBoard = () => {
 };
 
 
-
-
 const boxClicked = (e) => {
     const id = e.target.id;
     console.log(id);
     if (!spaces[id]) {
-        spaces[id] = currentPlayer;
-        e.target.innerText = currentPlayer;
+        spaces[id] = GameConfig.currentPlayer.piece;
+        e.target.innerText = GameConfig.currentPlayer.piece;
 
         if (playerHasWon()) {
-            playText.innerText = `${currentPlayer} has won!`;
+            playText.innerText = `${GameConfig.currentPlayer.name} has won!`;
+            restartBtn.style.visibility = 'visible'
             return;
         }
-        currentPlayer = currentPlayer === player1 ? player2 : player1;
+        GameConfig.currentPlayer = GameConfig.currentPlayer.piece === GameConfig.player1.piece ? GameConfig.player2 : GameConfig.player1;
     }
 };
 
+function add1Point(player) {
+  player.score = player.score + 1
+}
+
+function displayScores() {
+  const scoreLocal = document.getElementById('score1')
+  const scoreVisitante = document.getElementById('score2')
+  scoreLocal.innerText = GameConfig.player1.score
+  scoreVisitante.innerText = GameConfig.player2.score
+}
+
+function updateScores(winner) {
+  add1Point(winner)
+  displayScores()
+  
+}
 
 //verifica si el jugador ganó
 const playerHasWon = () => {
-    if (spaces[0] === currentPlayer) {
-        if (spaces[1] === currentPlayer && spaces[2] === currentPlayer) {
-            console.log(`${currentPlayer} wins up top.`)
+    if (spaces[0] === GameConfig.currentPlayer.piece) {
+        if (spaces[1] === GameConfig.currentPlayer.piece && spaces[2] === GameConfig.currentPlayer.piece) {
+          updateScores(GameConfig.currentPlayer)
             return true;
         }
-        if (spaces[3] === currentPlayer && spaces[6] === currentPlayer) {
-            console.log(`${currentPlayer} wins on the left.`)
-            return true;
+        if (spaces[3] === GameConfig.currentPlayer.piece && spaces[6] === GameConfig.currentPlayer.piece) {
+          updateScores(GameConfig.currentPlayer)
+          return true;
         }
-        if (spaces[4] === currentPlayer && spaces[8] === currentPlayer) {
-            console.log(`${currentPlayer} wins diagonally.`)
-            return true;
-        }
-    }
-     if (spaces[1] === currentPlayer) {
-        if (spaces[4] === currentPlayer && spaces[7] === currentPlayer) {
-            console.log(`${currentPlayer} wins vertical center.`)
-            return true;
+        if (spaces[4] === GameConfig.currentPlayer.piece && spaces[8] === GameConfig.currentPlayer.piece) {
+          updateScores(GameConfig.currentPlayer)
+          return true;
         }
     }
-    if (spaces[2] === currentPlayer){
-        if (spaces[5] === currentPlayer && spaces[8] === currentPlayer) {
-            console.log(`${currentPlayer} wins on the right.`)
-            return true;
+     if (spaces[1] === GameConfig.currentPlayer.piece) {
+        if (spaces[4] === GameConfig.currentPlayer.piece && spaces[7] === GameConfig.currentPlayer.piece) {
+          updateScores(GameConfig.currentPlayer)
+          return true;
         }
     }
-    if (spaces[6] === currentPlayer){
-        if (spaces[7] === currentPlayer && spaces[8] === currentPlayer) {
-            console.log(`${currentPlayer} wins on bottom.`)
-            return true;
-        }
-        if (spaces[4] === currentPlayer && spaces[2] === currentPlayer) {
-            console.log(`${currentPlayer} wins inverted diagonally.`)
-            return true;
+    if (spaces[2] === GameConfig.currentPlayer){
+        if (spaces[5] === GameConfig.currentPlayer.piece && spaces[8] === GameConfig.currentPlayer.piece) {
+          updateScores(GameConfig.currentPlayer)
+          return true;
         }
     }
-    if (spaces[3] === currentPlayer){
-        if (spaces[4] === currentPlayer && spaces[5] === currentPlayer) {
-            console.log(`${currentPlayer} wins horizontal center.`)
-            return true;
+    if (spaces[6] === GameConfig.currentPlayer.piece){
+        if (spaces[7] === GameConfig.currentPlayer.piece && spaces[8] === GameConfig.currentPlayer.piece) {
+          updateScores(GameConfig.currentPlayer)
+          return true;
+        }
+        if (spaces[4] === GameConfig.currentPlayer.piece && spaces[2] === GameConfig.currentPlayer.piece) {
+          updateScores(GameConfig.currentPlayer)
+          return true;
+        }
+    }
+    if (spaces[3] === GameConfig.currentPlayer.piece){
+        if (spaces[4] === GameConfig.currentPlayer.piece && spaces[5] === GameConfig.currentPlayer.piece) {
+          updateScores(GameConfig.currentPlayer)
+          return true;
         }
     }
 }
@@ -135,10 +141,11 @@ restartBtn.addEventListener('click', () => {
         box.innerText = '';
     });
     playText.innerText = `Let's Play!`;
-    currentPlayer = player1;
-});
+    GameConfig.currentPlayer = StartingPlayer(GameConfig.player1, GameConfig.player2)
+})
 
 
-drawBoard();
-createPlayers()
-//import {player, createPlayers} from "./player.js"
+drawBoard()
+ConfigGame()
+
+export { GameConfig }
